@@ -1,6 +1,6 @@
 # usql
 
-Query any database from your terminal.
+Feed your database to LLMs. Query anything from terminal.
 
 ![usql](demo.png)
 
@@ -8,21 +8,42 @@ Query any database from your terminal.
 npm i -g @sdjz/usql
 ```
 
+## Give AI Your Database Context
+
+One command to generate a token-optimized schema dump for ChatGPT, Claude, or any LLM:
+
 ```bash
-usql ./data.db "SELECT * FROM users"
-usql postgres://localhost/mydb "SELECT now()"
-usql ./report.parquet "SELECT * FROM data LIMIT 10"
+usql inspect ./myapp.db
 ```
 
-Drivers install automatically on first use. No config needed.
+```json
+{"v":1,"d":"sqlite","t":{"users":{"c":{"id":"s","name":"s","email":"s"},"pk":["id"],"fk":[],"s":[{"id":"1","name":"Alice"}]}}}
+```
 
-## Quick Start
+Paste this into your AI chat. It now understands your schema, relationships, and sample data.
 
 ```bash
-# Query a SQLite file
-usql ./app.db "SELECT * FROM users LIMIT 5"
+# Pretty print for humans
+usql inspect postgres://localhost/prod --pretty
 
-# Start interactive mode
+# Control sample size
+usql inspect ./app.db --rows 5
+```
+
+## Query Any Database
+
+```bash
+usql ./data.db "SELECT * FROM users"
+usql postgres://user:pass@host/db "SELECT now()"
+usql mysql://user:pass@host/db "SHOW TABLES"
+usql ./analytics.parquet "SELECT * FROM data LIMIT 10"
+```
+
+Drivers auto-install on first use. Zero config.
+
+## Interactive REPL
+
+```bash
 usql ./app.db
 ```
 
@@ -31,31 +52,26 @@ sqlite> .tables
 users
 orders
 
-sqlite> SELECT COUNT(*) FROM orders;
-count
-------
-1847
-  1 row(s)
-
-sqlite> .quit
+sqlite> SELECT * FROM users LIMIT 3;
+id  name   email
+--- ------ -----------------
+1   Alice  alice@example.com
+2   Bob    bob@example.com
+  2 row(s)
 ```
 
-## AI Mode
+## Pipe to Anything
 
-Generate a compact schema dump for LLMs:
+Output is JSON when piped. Works with jq, scripts, CI/CD:
 
 ```bash
-usql inspect ./app.db
+usql ./app.db "SELECT * FROM users" | jq '.rows | length'
 ```
 
-```json
-{"v":1,"d":"sqlite","t":{"users":{"c":{"id":"s","name":"s"},"pk":["id"],"s":[{"id":"1","name":"Alice"}]}}}
-```
+## Supported
 
-## Databases
-
-| Type | Connection |
-|------|------------|
+| Database | Example |
+|----------|---------|
 | SQLite | `./file.db` |
 | PostgreSQL | `postgres://user:pass@host/db` |
 | MySQL | `mysql://user:pass@host/db` |
@@ -65,23 +81,16 @@ usql inspect ./app.db
 ## Commands
 
 ```
-.tables         list tables
-.schema <t>     show columns
-.sample <t>     preview rows
-.count <t>      count rows
-.indexes <t>    show indexes
-.time           toggle timing
-.export csv     export result
-.inspect        schema for AI
+.tables       list tables
+.schema <t>   columns
+.sample <t>   preview rows
+.count <t>    row count
+.indexes <t>  indexes
+.time         query timing
+.export csv   export last result
+.inspect      AI schema dump
 ```
 
-## Options
-
-```
---json       JSON output
---quiet      less output
---no-color   no colors
---pretty     format JSON
-```
+---
 
 MIT
